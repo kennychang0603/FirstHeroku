@@ -1,25 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html">
+	<title>Castles Payment Logs</title>
+</head>
+<body>
 <?php
-
-require('../vendor/autoload.php');
-
-$app = new Silex\Application();
-$app['debug'] = true;
-
-// Register the monolog logging service
-$app->register(new Silex\Provider\MonologServiceProvider(), array(
-  'monolog.logfile' => 'php://stderr',
-));
-
-// Register view rendering
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/views',
-));
-
-// Our web handlers
-
-$app->get('/', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.html');
-});
-
-$app->run();
+	echo '<div id="logo">';
+	echo 	'<img src="imgs/CTOS_LOGO.png" height="250" width="350"/>';
+	echo '</div>';
+	echo '<section class="container">';
+	echo 	'<div align="center" class="login">';
+	echo 		'<h1>Login to System</h1>';
+	echo 		'<form id="sentLogin" action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
+	echo 			'<p><input id="usr" type="text" name="user" value="" placeholder="Username"></p>';
+	echo 			'<p><input id="pwd" type="password" name="pwd" value="" placeholder="Password"></p>';
+	echo 			'<p><input type="Submit" value="Login" name="poLogin"></p>';
+	echo 		'</form>';
+	echo 	'</div>';
+	echo '</section>';
+?>
+</body>
+</html>
